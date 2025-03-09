@@ -62,3 +62,8 @@
     font-family: 'primeicons' !important;
     font-style: normal;
 }
+.arrow-icon {
+    font-size: 24px; /* גודל האיקון */
+    font-weight: bold; /* הפיכת החץ ל-Bold */
+    color: var(--primary-color); /* צבע לבן */
+  }

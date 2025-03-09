@@ -11,10 +11,12 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import {MatIconModule} from '@angular/material/icon';
 import { Course } from '../../models/course';
 import { AuthService } from '../../services/auth.service';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 @Component({
   selector: 'app-update-course',
   standalone: true,
-  imports: [RouterModule,ReactiveFormsModule,MatIconModule, CommonModule, MatListModule, MatFormFieldModule, MatInputModule, MatExpansionModule],
+  imports: [RouterModule,MatButtonModule,MatCardModule,ReactiveFormsModule,MatIconModule, CommonModule, MatListModule, MatFormFieldModule, MatInputModule, MatExpansionModule],
   templateUrl: './update-course.component.html',
   styleUrl: './update-course.component.css'
 })

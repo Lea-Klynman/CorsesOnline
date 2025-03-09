@@ -1,25 +1,42 @@
-<form [formGroup]="courseForm" (ngSubmit)="addCourse()" class="course-form">
-    <mat-form-field appearance="outline">
-        <mat-label>title </mat-label>
-        <input matInput placeholder="title " formControlName="title">
-        @if(courseForm.get('title')?.invalid && courseForm.get('title')?.touched){
 
-        <mat-error>
-            Error: title is required
-        </mat-error>
-        }
-    </mat-form-field>
-
-    <mat-form-field appearance="outline">
-        <mat-label>description</mat-label>
-        <textarea matInput placeholder="description" formControlName="description"></textarea>
-        @if(courseForm.get('description')?.invalid && courseForm.get('description')?.touched){
-
-        <mat-error>
-            Error: description is required
-        </mat-error>
-        }
-    </mat-form-field>
-
-    <button mat-raised-button color="primary" type="submit">Send</button>
-</form>
+<div class="form-wrapper">
+    <form [formGroup]="courseForm" (ngSubmit)="addCourse()" class="course-form">
+        <mat-card class="add-course-card">
+            <mat-card-title>Add Course</mat-card-title>
+            <mat-card-content>
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>title </mat-label>
+            <input matInput placeholder="title " formControlName="title">
+            @if(courseForm.get('title')?.invalid && courseForm.get('title')?.touched){
+    
+            <mat-error>
+                Error: title is required
+            </mat-error>
+            }
+        </mat-form-field>
+    
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>description</mat-label>
+            <textarea matInput placeholder="description" formControlName="description"></textarea>
+            @if(courseForm.get('description')?.invalid && courseForm.get('description')?.touched){
+    
+            <mat-error>
+                Error: description is required
+            </mat-error>
+            }
+        </mat-form-field>
+    
+        <button mat-raised-button 
+        class="submit-button" 
+        type="submit" 
+                [disabled]="courseForm.invalid">
+                Add 
+    
+        </button>
+    </mat-card-content>
+    </mat-card>
+    </form>
+    <a routerLink="/course" class="course-card">
+        <mat-icon class="arrow-icon">arrow_back</mat-icon>
+      </a>
+        </div>

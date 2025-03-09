@@ -4,13 +4,14 @@ import { Course } from '../../models/course';
 import { map, Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { TableModule } from 'primeng/table';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-course-list',
   standalone: true,
-  imports: [CommonModule, TableModule],
+  imports: [CommonModule, TableModule, RouterLink,MatIconModule],
   templateUrl: './course-list.component.html',
   styleUrl: './course-list.component.css'
 })
