@@ -1,0 +1,38 @@
+<form [formGroup]="registerForm" (submit)="register()">
+    <div class="formGroup">
+        <label for="name">name: </label>
+        <input class="form-control" type="text" name="name" id="name" formControlName="name">
+    </div>
+
+    @if(this.registerForm.get('name')?.invalid && registerForm.get('name')?.touched){
+    <small>name is required and at least 3 characters</small>
+    }
+    <div class="formGroup">
+        <label for="email">email: </label>
+        <input class="form-control" type="email" name="email" id="email" formControlName="email">
+    </div>
+    @if(this.registerForm.get('email')?.invalid && registerForm.get('email')?.touched){
+    <small>email is required</small>
+    }
+    <div class="formGroup">
+        <label for="password">password: </label>
+        <input class="form-control" type="text" name="password" id="password" formControlName="password">
+    </div>
+    @if(this.registerForm.get('password')?.invalid && registerForm.get('password')?.touched){
+    <small>password is required</small>
+    }
+    <div class="formGroup">
+
+        <label for="role">role: </label>
+        <br>
+        <input class="form-control" type="radio" name="role" id="admin" value="admin" formControlName="role">Admin
+        <input class="form-control" type="radio" name="role" id="student" value="student" formControlName="role">Student
+        <input class="form-control" type="radio" name="role" id="teacher" value="teacher" formControlName="role">Teacher
+    </div>
+
+    @if(this.registerForm.get('role')?.invalid && registerForm.get('role')?.touched){
+    <small>role is required</small>
+    }
+    <button [disabled]="this.registerForm.invalid" type="submit">submit</button>
+</form>
+<a routerLink="/login"> Have an account sing in</a>

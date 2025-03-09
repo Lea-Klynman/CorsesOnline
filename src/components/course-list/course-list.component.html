@@ -1,0 +1,46 @@
+@if(getAuthServiceRole() == "teacher"){
+    <button (click)="add()">Add course</button>
+    }
+    
+    <div class="card">
+        <p-table [value]="courses" [tableStyle]="{'min-width': '60rem'}">
+            <ng-template #header>
+                <tr>
+                    <th pSortableColumn="Course" style="width:20%">
+                        Course <p-sortIcon field="title" />
+                    </th>
+                    <th pSortableColumn="Description" style="width:20%">
+                        Description 
+                    </th>
+                    @if(getAuthServiceRole() == "student"){
+                    <th>Un/enroll</th>
+                    @if(getAuthServiceRole() == "teacher"){
+                    <th>Edit</th>
+                    <th>Delete</th>
+                    }
+                    <th>more detailes</th>
+                    }
+                </tr>
+            </ng-template>
+            <ng-template #body let-course>
+                <tr>
+                    <td>{{ course.title }}</td>
+                    <td>{{ course.description }}</td>
+                    @if(getAuthServiceRole() == "student" &&!(isEnrolled(course.id) | async)){
+                        <td [ngClass]=" 'Enroll'| icon" style="font-size: 1rem" (click)="enroll(course.id)">Enroll</td>
+    
+                    }
+                    @else if (getAuthServiceRole() == "student" && (isEnrolled(course.id) | async)) {
+                        <td [ngClass]=" 'UnEnroll'| icon" style="font-size: 1rem" (click)="unenroll(course.id)">unEnroll</td>
+    
+                    }
+                    @if(getAuthServiceRole() == "teacher"){
+                        <td [class]="('Edit' | icon)" (click)="update(course)"></td>
+                        <td [class]="('Delete' | icon)" (click)="deleteCourse(course.id)"></td>
+                
+                    }
+                   <td [class]="(' ' | icon)" (click)="showCourse(course.id)"></td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>

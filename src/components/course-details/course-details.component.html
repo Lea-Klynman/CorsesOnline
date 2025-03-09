@@ -1,0 +1,47 @@
+
+{{(course$|async)?.title}}:
+<br>
+id:{{(course$|async)?.id}}
+<br>
+teacherId{{(course$|async)?.teacherId}}
+<br>
+description{{(course$|async)?.description}}
+<br>
+    lessons:
+    @if(getLengthLessons() > 0){
+        <ul>
+            @for(l of (lessons$|async);track l.id){
+             <li>lesson :{{l.id}}-{{l.title}}:{{l.content}}</li>     
+             @if(getAuthRole()=='teacher'){
+                <button (click)="deleteLesson(l.id)">delete</button>
+            }
+            }
+          </ul> 
+        }
+        @else {
+            no lessons found.
+        }  
+   
+   
+        @if(getAuthRole()=='teacher'){
+            <button (click)="handelOpen()">add lesson</button>
+        }
+        @if(IsAdding){
+          <form [formGroup]="lessonForm" (ngSubmit)="addLesson()" >
+            <div class="formGroup">
+                <label for="title">title:</label>
+                <input type="text" name="title" id="title" formControlName="title" class="form-control">
+            </div>
+            @if(this.lessonForm.get('title')?.invalid && lessonForm.get('email')?.touched){
+                <small>title is required</small>
+                }
+            <div class="formGroup">
+                <label for="content">content:</label>
+                <input type="text" name="content" id="content" formControlName="content" class="form-control">
+            </div>
+            @if(this.lessonForm.get('content')?.invalid && lessonForm.get('content')?.touched){
+                <small>title is required</small>
+                }
+            <button [disabled]="this.lessonForm.invalid" type="submit">submit</button>
+        </form>
+        }
