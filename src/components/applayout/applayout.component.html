@@ -1,2 +1,43 @@
-<a routerLink="/course">Course List</a>
-<router-outlet></router-outlet>
+<mat-toolbar color="primary" class="app-bar">
+    <span class="site-icon">
+      <mat-icon>school</mat-icon>
+      <span class="site-name">Course Online</span>
+    </span>
+    <span class="spacer"></span>
+    <mat-nav-list class="nav-links">
+      <a mat-button routerLink="/course"> Courses List</a>
+      <a mat-button routerLink="/about">About</a>
+    </mat-nav-list>
+    <span class="spacer"></span>
+    <div class="user-section">
+      <mat-icon>logout</mat-icon>
+      <button mat-button (click)="logout()">Logout</button>
+    </div>
+  </mat-toolbar>
+  
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
+  
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="contact">
+        <h6>Contact Us</h6>
+        <div class="social-icons">
+          <a href="tel:+1234567890"><mat-icon>phone</mat-icon></a>
+          <a href="mailto:contact@example.com"><mat-icon>email</mat-icon></a>
+          <a href="https://wa.me/1234567890" target="_blank"><mat-icon>chat</mat-icon></a>
+        </div>
+      </div>
+      <div class="follow-us">
+        <h6>Follow Us</h6>
+        <div class="social-icons">
+            <a href="https://facebook.com" target="_blank" class="social-icon"><i class="fab fa-facebook"></i></a>
+            <a href="https://instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com" target="_blank" class="social-icon"><i class="fab fa-youtube"></i></a>
+            <a href="https://twitter.com" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
+          </div>
+      </div>
+    </div>
+    <p> Course Management. All rights reserved.</p>
+  </footer>

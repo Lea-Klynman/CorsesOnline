@@ -1,46 +1,57 @@
-@if(getAuthServiceRole() == "teacher"){
-    <button (click)="add()">Add course</button>
-    }
-    
-    <div class="card">
-        <p-table [value]="courses" [tableStyle]="{'min-width': '60rem'}">
-            <ng-template #header>
-                <tr>
-                    <th pSortableColumn="Course" style="width:20%">
-                        Course <p-sortIcon field="title" />
-                    </th>
-                    <th pSortableColumn="Description" style="width:20%">
-                        Description 
-                    </th>
-                    @if(getAuthServiceRole() == "student"){
+@if(getAuthServiceRole() == "teacher") {
+    <button pButton label="Add Course" icon="pi pi-plus" class="icon-button p-button-success add-course-btn" (click)="add()"><i class="pi pi-plus"></i></button>
+}
+
+<div class="card course-table-container">
+    <p-table [value]="courses" [tableStyle]="{'min-width': '60rem'}" [paginator]="true" [rows]="5">
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="title">
+                    Course <p-sortIcon field="title"></p-sortIcon>
+                </th>
+                <th>Description</th>
+                @if(getAuthServiceRole() == "student") {
                     <th>Un/enroll</th>
-                    @if(getAuthServiceRole() == "teacher"){
+                }
+                @if(getAuthServiceRole() == "teacher") {
                     <th>Edit</th>
                     <th>Delete</th>
-                    }
-                    <th>more detailes</th>
-                    }
-                </tr>
-            </ng-template>
-            <ng-template #body let-course>
-                <tr>
-                    <td>{{ course.title }}</td>
-                    <td>{{ course.description }}</td>
-                    @if(getAuthServiceRole() == "student" &&!(isEnrolled(course.id) | async)){
-                        <td [ngClass]=" 'Enroll'| icon" style="font-size: 1rem" (click)="enroll(course.id)">Enroll</td>
-    
-                    }
-                    @else if (getAuthServiceRole() == "student" && (isEnrolled(course.id) | async)) {
-                        <td [ngClass]=" 'UnEnroll'| icon" style="font-size: 1rem" (click)="unenroll(course.id)">unEnroll</td>
-    
-                    }
-                    @if(getAuthServiceRole() == "teacher"){
-                        <td [class]="('Edit' | icon)" (click)="update(course)"></td>
-                        <td [class]="('Delete' | icon)" (click)="deleteCourse(course.id)"></td>
-                
-                    }
-                   <td [class]="(' ' | icon)" (click)="showCourse(course.id)"></td>
-                </tr>
-            </ng-template>
-        </p-table>
-    </div>
+                }
+                <th>More Details</th>
+            </tr>
+        </ng-template>
+        
+        <ng-template pTemplate="body" let-course let-rowIndex="rowIndex">
+            <tr [ngClass]="{ 'even-row': rowIndex % 2 === 0, 'odd-row': rowIndex % 2 !== 0 }">
+                <td>{{ course.title }}</td>
+                <td>{{ course.description }}</td>
+
+                @if(getAuthServiceRole() == "student") {
+                    <td>
+                        @if(getAuthServiceRole() == "student" &&!(isEnrolled(course.id) | async)){
+                            <button pButton  label="Enroll" icon="pi pi-user-plus" class="icon-button p-button-rounded p-button-primary" (click)="enroll(course.id)"><i class="pi pi-user-plus"></i></button>
+ 
+                        }
+                        @else {
+                            <button pButton label="Unenroll" icon="pi pi-user-minus" class="icon-button p-button-rounded p-button-warning" (click)="unenroll(course.id)"><i class="pi pi-user-minus"></i></button>
+
+                        }
+                    </td>
+                }
+
+                @if(getAuthServiceRole() == "teacher") {
+                    <td>
+                        <button pButton icon="pi pi-pencil" class="icon-button p-button-rounded p-button-info" (click)="update(course)"><i class="pi pi-pencil"></i></button>
+                    </td>
+                    <td>
+                        <button pButton icon="pi pi-trash" class="icon-button p-button-rounded p-button-danger" (click)="deleteCourse(course.id)"><i class="pi pi-trash"></i></button>
+                    </td>
+                }
+
+                <td>
+                    <button pButton icon="pi pi-eye" class="icon-button p-button-rounded p-button-secondary" (click)="showCourse(course.id)"><i class="pi pi-eye"></i></button>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

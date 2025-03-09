@@ -1,5 +1,5 @@
 import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
-import {  FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import {  FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { partUser} from '../../models/User';
 import { AuthService } from '../../services/auth.service';
 import { Router, RouterLink } from '@angular/router';
@@ -52,8 +52,8 @@ export class LoginComponent {
   }
   ngOnInit(): void {
     this.signInForm = this.fb.group({
-      email: [''],
-      password: ['']
+      email: ['',[Validators.required,Validators.email]],
+      password: ['',Validators.required]
     });
   }
 }

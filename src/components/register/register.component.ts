@@ -1,13 +1,18 @@
 import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { Role, User } from '../../models/User';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
-
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatError } from '@angular/material/form-field';
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [ReactiveFormsModule,RouterLink],
+  imports: [ReactiveFormsModule,MatError,RouterLink,MatCardModule,MatFormFieldModule,MatInputModule,MatButtonModule,MatRadioModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
@@ -48,10 +53,10 @@ export class RegisterComponent {
   }
   ngOnInit(): void {
     this.registerForm = this.fb.group({
-      email: [''],
-      password: [''],
-      name: [''],
-      role: ['']
+      email: ['',[Validators.required,Validators.email]],
+      password: ['',[Validators.required,Validators.minLength(6)]],
+      name: ['',Validators.required],
+      role: ['',[Validators.required]]
     });
   }
 }

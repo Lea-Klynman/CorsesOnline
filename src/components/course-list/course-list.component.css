@@ -1,0 +1,64 @@
+.course-table-container {
+    width: fit-content;
+    margin-left: 0; /* מיקום הטבלה בצד שמאל */
+}
+
+.p-datatable .p-datatable-thead > tr > th,
+.p-datatable .p-datatable-tbody > tr > td {
+    padding: 12px 16px; /* מרווח פנימי בתאים */
+    text-align: center; /* מרכז את התוכן */
+    vertical-align: middle; /* ממקם את התוכן במרכז אנכית */
+}
+
+.p-datatable .p-datatable-tbody > tr {
+    height: 15px; /* גובה שורות גדול יותר */
+    padding: 2px;
+    size: large; 
+}
+.odd-row {
+    background-color: white;
+}
+
+.even-row {
+    background-color: rgba(8, 193, 138, 0.2); /* צבע בהיר של ה-Primary */
+}
+
+.add-course-btn {
+    margin-bottom: 10px;
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* מרווח בין האייקון לטקסט */
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.add-course-btn mat-icon {
+    font-weight: bold;
+    font-size: 1.2rem; /* הופך את האייקון לבולט יותר */
+    color: white;
+}
+.icon-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-size: 1.4rem; /* התאמה לגודל הרצוי */
+    color: inherit; /* צבע הכתב מהסביבה */
+}
+.icon-button:hover {
+    color: #08C18A; /* שינוי צבע בהובר */
+}
+.p-button {
+    margin: 5px;
+    font-size: 0.9rem;
+}
+.pi {
+    font-family: 'primeicons' !important;
+    font-style: normal;
+}

@@ -14,7 +14,7 @@ export const routes: Routes = [
     path: '', component: ApplayoutComponent, canActivate: [authGuard], children: [
       { path: 'course', component: CourseListComponent },
       { path: 'course/:courseId', component: CourseDetailsComponent },
-      { path: 'coursesManagement', component: CoursesManagementComponent },
+      { path: '', component: CoursesManagementComponent },
       { path: 'add-course/:userId', component: AddCourseComponent },
       { path: 'update-course/:courseId', component: UpdateCourseComponent }
     ]

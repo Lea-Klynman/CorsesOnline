@@ -1,0 +1,27 @@
+.course-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* מרווח בין הטקסט לאיקון */
+    background-color: var(--primary-color); /* צבע הרקע לפי משתנה ה-Primary */
+    color: white; /* טקסט בצבע לבן */
+    padding: 16px 45px; /* ריווח פנימי */
+    border-radius: 12px; /* פינות מעוגלות */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* צל */
+    text-decoration: none; /* הסרת קו תחתון מהקישור */
+    font-size: 24px; /* גודל טקסט */
+    font-weight: bold; /* כיתוב מודגש */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* אנימציה */
+    height:200px;
+    width: 350px; /* רוחב קבוע */
+  }
+  
+  .course-card:hover {
+    transform: translateY(-3px); /* הרמה קלה בהובר */
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3); /* צל חזק יותר */
+  }
+  
+  .arrow-icon {
+    font-size: 24px; /* גודל האיקון */
+    font-weight: bold; /* הפיכת החץ ל-Bold */
+    color: white; /* צבע לבן */
+  }

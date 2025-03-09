@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-@import "primeicons/primeicons.css";
+@import 'primeicons/primeicons.css';
+
 :root {
     --primary-color: rgb(8, 193, 138);  /* צבע ראשי */
     --text-color: rgb(18, 19, 48);      /* צבע טקסט */
@@ -17,12 +18,7 @@
     height: 100vh;
   }
   
-  .mat-mdc-button, 
-  .mat-mdc-raised-button, 
-  .mat-mdc-fab {
-    background-color: var(--primary-color) !important;
-    color: white !important;
-  }
+
   
   .mat-mdc-card {
     background-color: var(--primary-color) !important;

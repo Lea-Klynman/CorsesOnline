@@ -5,13 +5,12 @@ import { map, Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
-import { IconPipe } from "../../app/pipe/icon.pipe";
 import { TableModule } from 'primeng/table';
 
 @Component({
   selector: 'app-course-list',
   standalone: true,
-  imports: [CommonModule, IconPipe, TableModule],
+  imports: [CommonModule, TableModule],
   templateUrl: './course-list.component.html',
   styleUrl: './course-list.component.css'
 })
