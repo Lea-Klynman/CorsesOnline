@@ -61,7 +61,6 @@ export class CourseDetailsComponent {
   deleteLesson(lessonId: number) {
     this.lessonService.deleteLesson(this.courseId.toString(),lessonId.toString()).subscribe({
       next: res => {
-        console.log('Success:', res);
         this.lessons$ = this.lessonService.getLessons(this.courseId);
       },
       error: err => console.error('Error:', err)
@@ -73,7 +72,6 @@ export class CourseDetailsComponent {
     this.openUpdate=!this.openUpdate
   }
   IsupdateLesson(){
-    console.log("hello");
     this.openUpdate=!this.openUpdate
     this.lessons$ = this.lessonService.getLessons(this.courseId);
   }

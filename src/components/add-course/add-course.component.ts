@@ -37,7 +37,6 @@ export class AddCourseComponent {
     if (this.courseForm.valid) {
       this.coursesService.createCourse(this.courseForm.value).subscribe({
         next: res => {
-          console.log('Success:', res),
             this.courseForm.reset();
         },
         error: err => console.error('Error:', err)

@@ -1,26 +1,28 @@
 .course-table-container {
     width: fit-content;
-    margin-left: 0; /* מיקום הטבלה בצד שמאל */
+    margin-left: 0; 
 }
 
 .p-datatable .p-datatable-thead > tr > th,
 .p-datatable .p-datatable-tbody > tr > td {
-    padding: 12px 16px; /* מרווח פנימי בתאים */
-    text-align: center; /* מרכז את התוכן */
-    vertical-align: middle; /* ממקם את התוכן במרכז אנכית */
+    padding: 12px 16px; 
+    text-align: center !important;
+    vertical-align: middle;
+
 }
 
 .p-datatable .p-datatable-tbody > tr {
-    height: 15px; /* גובה שורות גדול יותר */
+    height: 15px; 
     padding: 2px;
     size: large; 
+    text-align: middle !important; 
 }
 .odd-row {
     background-color: white;
 }
 
 .even-row {
-    background-color: rgba(8, 193, 138, 0.2); /* צבע בהיר של ה-Primary */
+    background-color: rgba(8, 193, 138, 0.2); 
 }
 
 .add-course-btn {
@@ -30,7 +32,7 @@
     font-weight: bold;
     display: flex;
     align-items: center;
-    gap: 8px; /* מרווח בין האייקון לטקסט */
+    gap: 8px; 
     padding: 10px 16px;
     border-radius: 8px;
     border: none;
@@ -40,19 +42,20 @@
 
 .add-course-btn mat-icon {
     font-weight: bold;
-    font-size: 1.2rem; /* הופך את האייקון לבולט יותר */
+    font-size: 1.2rem; 
     color: white;
 }
 .icon-button {
     background: none;
     border: none;
     padding: 0;
+    margin: 13px 0px 13px 0px;
     cursor: pointer;
-    font-size: 1.4rem; /* התאמה לגודל הרצוי */
-    color: inherit; /* צבע הכתב מהסביבה */
+    font-size: 1.4rem; 
+    color: inherit;
 }
 .icon-button:hover {
-    color: #08C18A; /* שינוי צבע בהובר */
+    color: #08C18A;
 }
 .p-button {
     margin: 5px;
@@ -63,7 +66,7 @@
     font-style: normal;
 }
 .arrow-icon {
-    font-size: 24px; /* גודל האיקון */
-    font-weight: bold; /* הפיכת החץ ל-Bold */
-    color: var(--primary-color); /* צבע לבן */
+    font-size: 24px;
+    font-weight: bold; 
+    color: var(--primary-color);
   }

@@ -50,10 +50,8 @@ ngOnInit(): void {
         description: this.courseForm.get('description')?.value,
         teacherId: this.authService.userId
       };
-      console.log(updatedCourse);
       
       this.coursesService.updateCourse(updatedCourse).subscribe(() => {
-        console.log('Course updated successfully');
       });
       this.coursesService.getCourses();
     }

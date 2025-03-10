@@ -27,7 +27,6 @@ export class CourseService {
      this.http.get<Course[]>(this.apiUrl).subscribe(
       (courses) => {
         this.coursesBehaviorSubject.next(courses);
-        console.log(courses);
       },
       (error) => alert('Error:' + error.message)
     );;
@@ -54,7 +53,6 @@ export class CourseService {
 
   // DELETE course by ID (for teachers)
   deleteCourse(id: number): Observable<any> {
-    console.log("service.deleteCourse");
     
     const res= this.http.delete(`${this.apiUrl}/${id}`);
     res.subscribe(() => {this.getCourses();  
@@ -71,7 +69,6 @@ export class CourseService {
   }
 
   unenroll(courseId: number,userId: number): void { 
-    console.log(userId);  
      this.http.delete(`${this.apiUrl}/${courseId}/unenroll`,  {body: {userId}} )
      .subscribe(()=> {
         this.getStuentCourses(userId)

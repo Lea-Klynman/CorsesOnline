@@ -19,7 +19,6 @@ constructor(private authService: AuthService) { }
   logout() {
 this.authService.isAuth=false
 sessionStorage.removeItem('token');
-console.log("User logged out");
 this.router.navigate(["/login"]);
   }
 }

@@ -29,15 +29,12 @@ export class RegisterComponent {
   register(): void {
     if (this.registerForm?.valid) {
       this.user = this.registerForm.value;
-      console.log(this.user);
       
       if (this.user)
         this.authService.register(this.user).subscribe({next:(res) => {         
           this.authService.isAuth = true;
-          console.log("register successful");  
-          console.log(res.token);
+          
           sessionStorage.setItem('token',res.token);
-          console.log(res.userId);
           this.authService.userId = res.userId;
           this.authService.role = this.user!.role;   
           this.router.navigate(['/']); 

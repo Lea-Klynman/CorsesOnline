@@ -2,11 +2,11 @@
 @import 'primeicons/primeicons.css';
 
 :root {
-    --primary-color: rgb(8, 193, 138);  /* צבע ראשי */
-    --text-color: rgb(18, 19, 48);      /* צבע טקסט */
-    --error-color: #ED3D48;             /* צבע שגיאות */
-    --border-color: rgb(8, 193, 138);   /* צבע מסגרת */
-    --disabled-color: rgba(8, 193, 138, 0.4); /* צבע לכפתור מנוטרל */
+    --primary-color: rgb(8, 193, 138); 
+    --text-color: rgb(18, 19, 48);     
+    --error-color: #ED3D48;            
+    --border-color: rgb(8, 193, 138);   
+    --disabled-color: rgba(8, 193, 138, 0.4);
   }
   
   body {

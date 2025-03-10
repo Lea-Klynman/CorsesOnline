@@ -28,7 +28,6 @@ export class CourseListComponent {
     this.coursesService.getCourses();
     this.coursesService.courses$.subscribe(courses => {
       this.courses = courses;
-      console.log(this.courses);
     });
   }
   getAuthServiceRole(): string {
@@ -50,7 +49,6 @@ export class CourseListComponent {
   isEnrolled(courseId: number): Observable<boolean> {
     return this.coursesService.isEnrolled(courseId).pipe(
       map((result) => {
-        console.log(`Is enrolled in course ${courseId}: ${result}`);
         return result;
       })
     );
@@ -64,7 +62,6 @@ export class CourseListComponent {
 
   deleteCourse(id: number) {
     this.coursesService.deleteCourse(id)
-    console.log("delete course");
     
   }
 

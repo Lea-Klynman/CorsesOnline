@@ -40,14 +40,14 @@
     margin-top: 10px;
     background-color: var(--disabled-color);
     transition: background-color 0.3s, color 0.3s, box-shadow 0.3s, border 0.3s;
-    border: 1px solid transparent; /* מסגרת שקופה כשמנוטרל */
+    border: 1px solid transparent; 
 }
 
-/* כשהכפתור פעיל */
+
 .submit-button:enabled {
-    background-color: white; /* רקע לבן */
-    color: var(--primary-color); /* צבע טקסט */
-    border: 2px solid var(--primary-color); /* מסגרת בצבע הראשי */
+    background-color: white; 
+    color: var(--primary-color); 
+    border: 2px solid var(--primary-color);
 border-radius: 100%;
   }
 

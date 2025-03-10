@@ -33,16 +33,13 @@ export class LoginComponent {
       if (this.user)
         this.authService.login(this.user).subscribe({next:(res) => {     
        this.authService.isAuth = true;
-          console.log("login successful");
-          console.log(res.token);
           sessionStorage.setItem('token',res.token);
           this.authService.role = res.role;
-          console.log(res.userId);
           this.authService.userId = res.userId;
           this.router.navigate(['/']); 
         },
          error:( error) => {
-            console.log("login failed");
+          console.log("login failed");
           },
 
     });

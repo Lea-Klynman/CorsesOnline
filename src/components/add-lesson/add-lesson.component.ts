@@ -50,7 +50,6 @@ addLesson() {
     if (this.newlesson) {
       this.lessonService.addLesson(this.courseId.toString(), this.newlesson).subscribe({
         next: res => {
-          console.log('Success:', res);
           this.lessons$ = this.lessonService.getLessons(this.courseId);
         },
         error: err => console.error('Error:', err)

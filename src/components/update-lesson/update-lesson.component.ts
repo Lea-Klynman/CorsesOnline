@@ -53,7 +53,6 @@ export class UpdateLessonComponent {
         courseId: this.courseId
       }
       this.lessonService.updateLesson(this.courseId.toString(),updateLesson).subscribe({next:() => {
-        console.log('Lesson updated successfully');
         this.updateLessonEvent.emit();
       }, error:(error) => {
         console.log('Error updating lesson:', error);    
