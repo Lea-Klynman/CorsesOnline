@@ -1,0 +1,40 @@
+<div class="form-wrapper">
+    <form [formGroup]="lessonForm" (ngSubmit)="addLesson()" class="lesson-form">
+        <mat-card class="Add-Lesson-card">
+            <mat-card-title>Add Lesson</mat-card-title>
+            <mat-card-content>                   
+                 <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Title</mat-label>
+            <input matInput formControlName="title" required />
+            @if(lessonForm.get('title')?.invalid && lessonForm.get('title')?.touched){
+                <mat-error >
+                    Title is required
+                </mat-error>  
+            }
+            
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Content</mat-label>
+            <input matInput formControlName="content" required />
+            @if(this.lessonForm.get('content')?.invalid && lessonForm.get('content')?.touched){
+            <mat-error>
+                Content is required
+            </mat-error>
+            }
+
+        </mat-form-field>
+
+        <button mat-raised-button 
+        class="submit-button" 
+        type="submit" 
+                [disabled]="lessonForm.invalid">
+                Add 
+        </button>
+    </mat-card-content>
+</mat-card>
+    </form>
+    <button (click)="comeback()" class="button-add">
+        <mat-icon class="arrow-icon">arrow_back</mat-icon>
+    </button>
+    </div>

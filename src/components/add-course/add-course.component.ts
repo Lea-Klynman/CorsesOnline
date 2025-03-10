@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import {  ActivatedRoute, RouterModule } from '@angular/router';
+import {  ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { CourseService } from '../../services/courses.service';
 import { MatListModule } from '@angular/material/list';
 import { CommonModule } from '@angular/common';
@@ -20,7 +20,7 @@ import { MatCardModule } from '@angular/material/card';
 export class AddCourseComponent {
   userId!: number;
   courseForm!: FormGroup;
-
+    router = inject(Router);
   constructor(private route: ActivatedRoute,private fb: FormBuilder,private coursesService: CourseService) {
     this.courseForm = this.fb.group({
       title: ['', Validators.required],
@@ -43,5 +43,6 @@ export class AddCourseComponent {
         error: err => console.error('Error:', err)
       });
     }
+    this.router.navigate(['/course' ]);
   }
 }

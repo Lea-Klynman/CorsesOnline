@@ -1,0 +1,41 @@
+<div class="form-wrapper">
+    <mat-card class="update-Lesson-card">
+      <form [formGroup]="updateForm" (ngSubmit)="updateLesson()" class="edit-form">
+            <mat-card-title>Update Lesson</mat-card-title>
+            <mat-card-content>   
+             <mat-card-content>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Title</mat-label>
+          <input matInput formControlName="title" required />
+          @if(this.updateForm.get('title')?.invalid && updateForm.get('title')?.touched){
+          <mat-error>
+            Title is required
+          </mat-error>
+        }
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Content</mat-label>
+          <textarea matInput formControlName="content" required></textarea>
+          @if(this.updateForm.get('content')?.invalid && updateForm.get('content')?.touched){
+          <mat-error>
+            Content is required
+          </mat-error>
+        }
+        </mat-form-field>
+        <button mat-raised-button 
+        class="submit-button" 
+        type="submit" 
+                [disabled]="updateForm.invalid">
+                Update
+    
+        </button>
+      
+    </mat-card-content>
+  
+   
+</mat-card-content>
+</form>
+  </mat-card>
+  
+</div>

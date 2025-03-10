@@ -8,12 +8,19 @@ import { authGuard } from './guards/auth.guard';
 import { AddCourseComponent } from '../components/add-course/add-course.component';
 import { UpdateCourseComponent } from '../components/update-course/update-course.component';
 import { CourseDetailsComponent } from '../components/course-details/course-details.component';
+import { UpdateLessonComponent } from '../components/update-lesson/update-lesson.component';
+import { AddLessonComponent } from '../components/add-lesson/add-lesson.component';
+import { AboutComponent } from '../components/about/about.component';
 
 export const routes: Routes = [
   {
     path: '', component: ApplayoutComponent, canActivate: [authGuard], children: [
+    {path: 'about', component: AboutComponent},
       { path: 'course', component: CourseListComponent },
-      { path: 'course/:courseId', component: CourseDetailsComponent },
+      { path: 'course/:courseId', component: CourseDetailsComponent,children:
+         [{ path: 'update-lesson/:lessonId', component: UpdateLessonComponent,}]
+        },
+        { path: 'add-lesson/:courseId', component: AddLessonComponent },
       { path: '', component: CoursesManagementComponent },
       { path: 'add-course/:userId', component: AddCourseComponent },
       { path: 'update-course/:courseId', component: UpdateCourseComponent }

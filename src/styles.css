@@ -13,8 +13,9 @@
     font-family: "Poppins", sans-serif;
     background-color: #f5f5f5;
     display: flex ;
+    position: relative;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center ;
     align-items: center;
     height: 100vh;
   }

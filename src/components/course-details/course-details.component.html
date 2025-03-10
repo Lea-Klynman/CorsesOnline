@@ -1,47 +1,63 @@
+<div class="container ">
+    <div class="card-wrapper">
+        <div
+            style="width: 300px; height: 500px; display: flex; flex-direction: column;justify-content: space-between;">
+            @if(openUpdate){
+            <ng-container>
+                <app-update-lesson [lessonId]="lessonId" [courseId]="courseId"
+                    (updateLessonEvent)="IsupdateLesson()"></app-update-lesson>
+            </ng-container>
+            }
+            
+        </div>
 
-{{(course$|async)?.title}}:
-<br>
-id:{{(course$|async)?.id}}
-<br>
-teacherId{{(course$|async)?.teacherId}}
-<br>
-description{{(course$|async)?.description}}
-<br>
-    lessons:
-    @if(getLengthLessons() > 0){
-        <ul>
-            @for(l of (lessons$|async);track l.id){
-             <li>lesson :{{l.id}}-{{l.title}}:{{l.content}}</li>     
-             @if(getAuthRole()=='teacher'){
-                <button (click)="deleteLesson(l.id)">delete</button>
-            }
-            }
-          </ul> 
-        }
-        @else {
-            no lessons found.
-        }  
-   
-   
-        @if(getAuthRole()=='teacher'){
-            <button (click)="handelOpen()">add lesson</button>
-        }
-        @if(IsAdding){
-          <form [formGroup]="lessonForm" (ngSubmit)="addLesson()" >
-            <div class="formGroup">
-                <label for="title">title:</label>
-                <input type="text" name="title" id="title" formControlName="title" class="form-control">
-            </div>
-            @if(this.lessonForm.get('title')?.invalid && lessonForm.get('email')?.touched){
-                <small>title is required</small>
+        <mat-card class="course-card" id="card" style="width: 500px;">
+            <mat-card-header>
+                <div mat-card-avatar class="course-image"></div>
+                <mat-card-title id="title">{{ (course$ | async)?.title }}</mat-card-title>
+                <mat-card-subtitle>ID: {{ (course$ | async)?.id }}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <p><strong>Teacher ID:</strong> {{ (course$ | async)?.teacherId }}</p>
+                <p><strong>Description:</strong> {{ (course$ | async)?.description }}</p>
+                @if((lessons$|async)!==null&&(lessons$|async)!.length>0){
+                <ng-container>
+                    <p><strong>Lessons:</strong></p>
+                    <mat-list>
+                        @for(l of (lessons$|async);track l.id){
+                        <mat-list-item>
+                            <span>Lesson: {{ l.id }} - {{ l.title }}: {{ l.content }}</span>
+                            @if(getAuthRole()=='teacher'){
+                            <ng-container>
+                                <button mat-icon-button color="warn" (click)="deleteLesson(l.id)">
+                                    <mat-icon>delete</mat-icon>
+                                </button>
+                                <button mat-icon-button color="primary" (click)="updateLesson(l.id)">
+                                    <mat-icon>edit</mat-icon>
+                                </button>
+                            </ng-container>
+                            }
+
+                        </mat-list-item>
+                        }
+
+                    </mat-list>
+                </ng-container>
                 }
-            <div class="formGroup">
-                <label for="content">content:</label>
-                <input type="text" name="content" id="content" formControlName="content" class="form-control">
-            </div>
-            @if(this.lessonForm.get('content')?.invalid && lessonForm.get('content')?.touched){
-                <small>title is required</small>
-                }
-            <button [disabled]="this.lessonForm.invalid" type="submit">submit</button>
-        </form>
+                @else {
+                <p>No lessons available</p>}
+            </mat-card-content>
+            @if(getAuthRole()=='teacher'){
+            <mat-card-actions align="end">
+                <button mat-button color="warn" (click)="addLesson()" class="submit-button">add lesson</button>
+            </mat-card-actions>
         }
+        </mat-card>
+    </div>
+
+
+    <a routerLink="/course" class="course-card">
+        <mat-icon class="arrow-icon">arrow_back</mat-icon>
+      </a>
+      <router-outlet></router-outlet>
+</div>

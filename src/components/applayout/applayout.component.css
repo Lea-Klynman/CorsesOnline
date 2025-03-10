@@ -37,7 +37,9 @@
   
   .main-content {
     margin-top: 64px; 
+    margin-bottom:65px ;
     padding: 20px;
+    flex:1
   }
   mat-icon {
     font-family: 'Material Icons';
@@ -62,12 +64,13 @@
     color: #1da1f2;  /* צבע כחול עבור hover בטוויטר */
   }
   .footer {
-    position: fixed;
+    position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
     background-color: var(--primary-color);
     padding: 16px;
+    margin-top: 64px;
     text-align: center;
     color: white;
 }

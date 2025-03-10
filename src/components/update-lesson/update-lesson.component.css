@@ -1,0 +1,60 @@
+.form-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin: 12px;
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .update-Lesson-card {
+    width: 250px;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    background-color: white;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  mat-form-field {
+    width: 100%;
+  }
+  
+  input {
+    padding: 10px !important;
+  }
+  
+  mat-error {
+    color: var(--error-color);
+    font-size: 12px;
+  }
+  
+  .submit-button {
+    width: 50%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: var(--disabled-color);
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s, border 0.3s;
+    border: 1px solid transparent; /* מסגרת שקופה כשמנוטרל */
+}
+
+/* כשהכפתור פעיל */
+.submit-button:enabled {
+    background-color: white; /* רקע לבן */
+    color: var(--primary-color); /* צבע טקסט */
+    border: 2px solid var(--primary-color); /* מסגרת בצבע הראשי */
+border-radius: 100%;
+  }
+
+
+  .arrow-icon {
+    font-size: 24px; /* גודל האיקון */
+    font-weight: bold; /* הפיכת החץ ל-Bold */
+    color: var(--primary-color); /* צבע לבן */
+  }
